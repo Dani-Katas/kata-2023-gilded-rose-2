@@ -10,8 +10,7 @@ public final class InventoryItem {
     }
 
     void age() {
-        final String name = getName();
-        switch (name) {
+        switch (getName()) {
             case "Aged Brie":
                 increaseQuality();
                 decreaseSellIn();
