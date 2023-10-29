@@ -30,10 +30,6 @@ public class InventoryItem {
         }
     }
 
-    protected String getName() {
-        return item.name;
-    }
-
     protected boolean hasExpired() {
         return sellInIsLessThan(0);
     }
