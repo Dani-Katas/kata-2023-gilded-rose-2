@@ -5,8 +5,12 @@ import java.util.Objects;
 public class InventoryItem {
     private final Item item;
 
-    public InventoryItem(Item item) {
+    InventoryItem(Item item) {
         this.item = item;
+    }
+
+    public static InventoryItem create(Item item) {
+        return new InventoryItem(item);
     }
 
     void age() {
