@@ -13,9 +13,7 @@ public final class InventoryItem {
         final String name = item.name;
         if (name.equals("Aged Brie")) {
             increaseQuality();
-            if (!name.equals("Sulfuras, Hand of Ragnaros")) {
-                decreaseSellIn();
-            }
+            decreaseSellIn();
         } else {
             if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                 increaseQuality();
@@ -27,19 +25,12 @@ public final class InventoryItem {
                 if (item.sellIn < 6) {
                     increaseQuality();
                 }
-                if (!name.equals("Sulfuras, Hand of Ragnaros")) {
-                    decreaseSellIn();
-                }
+                decreaseSellIn();
             } else {
                 if (name.equals("Sulfuras, Hand of Ragnaros")) {
-                    if (!name.equals("Sulfuras, Hand of Ragnaros")) {
-                        decreaseSellIn();
-                    }
                 } else {
                     decreaseQuality();
-                    if (!name.equals("Sulfuras, Hand of Ragnaros")) {
-                        decreaseSellIn();
-                    }
+                    decreaseSellIn();
                 }
             }
         }
