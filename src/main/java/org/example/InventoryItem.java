@@ -14,20 +14,20 @@ public final class InventoryItem {
             case "Aged Brie":
                 increaseQuality();
                 decreaseSellIn();
-                if (item.sellIn < 0) {
+                if (sellInIsLessThan(0)) {
                     increaseQuality();
                 }
                 break;
             case "Backstage passes to a TAFKAL80ETC concert":
                 increaseQuality();
-                if (sellInIsLessThan()) {
+                if (sellInIsLessThan(11)) {
                     increaseQuality();
                 }
-                if (item.sellIn < 6) {
+                if (sellInIsLessThan(6)) {
                     increaseQuality();
                 }
                 decreaseSellIn();
-                if (item.sellIn < 0) {
+                if (sellInIsLessThan(0)) {
                     dropQualityToZero();
                 }
                 break;
@@ -36,15 +36,15 @@ public final class InventoryItem {
             default:
                 decreaseQuality();
                 decreaseSellIn();
-                if (item.sellIn < 0) {
+                if (sellInIsLessThan(0)) {
                     decreaseQuality();
                 }
                 break;
         }
     }
 
-    private boolean sellInIsLessThan() {
-        return item.sellIn < 11;
+    private boolean sellInIsLessThan(int amount) {
+        return item.sellIn < amount;
     }
 
     private void dropQualityToZero() {
