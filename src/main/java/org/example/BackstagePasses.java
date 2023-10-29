@@ -8,13 +8,13 @@ public class BackstagePasses extends InventoryItem {
     @Override
     void age() {
         increaseQuality();
-        if (sellInIsLessThan(11)) {
-            increaseQuality();
-        }
-        if (sellInIsLessThan(6)) {
-            increaseQuality();
-        }
         decreaseSellIn();
+        if (sellInIsLessThan(10)) {
+            increaseQuality();
+        }
+        if (sellInIsLessThan(5)) {
+            increaseQuality();
+        }
         if (hasExpired()) {
             dropQualityToZero();
         }
