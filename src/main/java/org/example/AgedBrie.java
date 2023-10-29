@@ -7,7 +7,7 @@ public class AgedBrie extends InventoryItem {
 
     @Override
     void age() {
-        switch (getName()) {
+        switch (AGED_BRIE_NAME) {
             case AGED_BRIE_NAME:
                 increaseQuality();
                 decreaseSellIn();

@@ -7,7 +7,7 @@ public class BackstagePasses extends InventoryItem {
 
     @Override
     void age() {
-        switch (getName()) {
+        switch (BACKSTAGE_PASSES_NAME) {
             case AGED_BRIE_NAME:
                 increaseQuality();
                 decreaseSellIn();
