@@ -15,14 +15,7 @@ public final class InventoryItem {
             increaseQuality();
             decreaseSellIn();
             if (item.sellIn < 0) {
-                if (name.equals("Aged Brie")) {
-                    increaseQuality();
-                } else if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                    dropQualityToZero();
-                } else if (name.equals("Sulfuras, Hand of Ragnaros")) {
-                } else {
-                    decreaseQuality();
-                }
+                increaseQuality();
             }
         } else {
             if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
@@ -37,44 +30,21 @@ public final class InventoryItem {
                 }
                 decreaseSellIn();
                 if (item.sellIn < 0) {
-                    if (name.equals("Aged Brie")) {
-                        increaseQuality();
-                    } else if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                        dropQualityToZero();
-                    } else if (name.equals("Sulfuras, Hand of Ragnaros")) {
-                    } else {
-                        decreaseQuality();
-                    }
+                    dropQualityToZero();
                 }
             } else {
                 if (name.equals("Sulfuras, Hand of Ragnaros")) {
                     if (item.sellIn < 0) {
-                        if (name.equals("Aged Brie")) {
-                            increaseQuality();
-                        } else if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                            dropQualityToZero();
-                        } else if (name.equals("Sulfuras, Hand of Ragnaros")) {
-                        } else {
-                            decreaseQuality();
-                        }
                     }
                 } else {
                     decreaseQuality();
                     decreaseSellIn();
                     if (item.sellIn < 0) {
-                        if (name.equals("Aged Brie")) {
-                            increaseQuality();
-                        } else if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                            dropQualityToZero();
-                        } else if (name.equals("Sulfuras, Hand of Ragnaros")) {
-                        } else {
-                            decreaseQuality();
-                        }
+                        decreaseQuality();
                     }
                 }
             }
         }
-
     }
 
     private void dropQualityToZero() {
