@@ -22,7 +22,7 @@ public class InventoryItem {
     }
 
     void age() {
-        switch (item.name) {
+        switch (getName()) {
             case AGED_BRIE_NAME:
                 increaseQuality();
                 decreaseSellIn();
@@ -53,6 +53,10 @@ public class InventoryItem {
                 }
                 break;
         }
+    }
+
+    protected String getName() {
+        return item.name;
     }
 
     protected boolean hasExpired() {
