@@ -13,17 +13,12 @@ public class InventoryItem {
     }
 
     public static InventoryItem create(Item item) {
-        if (AGED_BRIE_NAME.equals(item.name)) {
-            return new AgedBrie(item);
-        }
-        if (BACKSTAGE_PASSES_NAME.equals(item.name)) {
-            return new BackstagePasses(item);
-        }
-        if (SULFURAS_NAME.equals(item.name)) {
-            return new Sulfuras(item);
-        }
-
-        return new InventoryItem(item);
+        return switch (item.name) {
+            case AGED_BRIE_NAME -> new AgedBrie(item);
+            case BACKSTAGE_PASSES_NAME -> new BackstagePasses(item);
+            case SULFURAS_NAME -> new Sulfuras(item);
+            default -> new InventoryItem(item);
+        };
     }
 
     void age() {
