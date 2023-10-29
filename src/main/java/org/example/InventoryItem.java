@@ -35,12 +35,16 @@ public final class InventoryItem {
             if (item.name.equals("Aged Brie")) {
                 increaseQuality();
             } else if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                item.quality = 0;
+                dropQualityToZero();
             } else if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
             } else {
                 decreaseQuality();
             }
         }
+    }
+
+    private void dropQualityToZero() {
+        item.quality = 0;
     }
 
     private void decreaseSellIn() {
