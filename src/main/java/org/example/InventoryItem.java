@@ -11,6 +11,10 @@ public final class InventoryItem {
 
     void age() {
         final String name = item.name;
+        ageTemporal(name);
+    }
+
+    private void ageTemporal(String name) {
         if (!name.equals("Aged Brie")
                 && !name.equals("Backstage passes to a TAFKAL80ETC concert")) {
             if (item.quality > 0) {
