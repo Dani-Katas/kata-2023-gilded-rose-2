@@ -14,7 +14,7 @@ public final class InventoryItem {
             case "Aged Brie":
                 increaseQuality();
                 decreaseSellIn();
-                if (sellInIsLessThan(0)) {
+                if (hasExpired()) {
                     increaseQuality();
                 }
                 break;
@@ -27,7 +27,7 @@ public final class InventoryItem {
                     increaseQuality();
                 }
                 decreaseSellIn();
-                if (sellInIsLessThan(0)) {
+                if (hasExpired()) {
                     dropQualityToZero();
                 }
                 break;
@@ -36,11 +36,15 @@ public final class InventoryItem {
             default:
                 decreaseQuality();
                 decreaseSellIn();
-                if (sellInIsLessThan(0)) {
+                if (hasExpired()) {
                     decreaseQuality();
                 }
                 break;
         }
+    }
+
+    private boolean hasExpired() {
+        return sellInIsLessThan(0);
     }
 
     private boolean sellInIsLessThan(int amount) {
