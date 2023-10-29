@@ -55,29 +55,29 @@ public class InventoryItem {
         }
     }
 
-    private boolean hasExpired() {
+    protected boolean hasExpired() {
         return sellInIsLessThan(0);
     }
 
-    private boolean sellInIsLessThan(int amount) {
+    protected boolean sellInIsLessThan(int amount) {
         return item.sellIn < amount;
     }
 
-    private void dropQualityToZero() {
+    protected void dropQualityToZero() {
         item.quality = 0;
     }
 
-    private void decreaseSellIn() {
+    protected void decreaseSellIn() {
         item.sellIn = item.sellIn - 1;
     }
 
-    private void decreaseQuality() {
+    protected void decreaseQuality() {
         if (item.quality > 0) {
             item.quality = item.quality - 1;
         }
     }
 
-    private void increaseQuality() {
+    protected void increaseQuality() {
         if (item.quality < 50) {
             item.quality = item.quality + 1;
         }
