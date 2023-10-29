@@ -12,32 +12,22 @@ public final class InventoryItem {
     void age() {
         final String name = item.name;
         if (name.equals("Aged Brie")) {
-            if (item.quality < 50) {
-                item.quality = item.quality + 1;
-            }
+            increaseQuality();
 
             item.sellIn = item.sellIn - 1;
 
             if (item.sellIn < 0) {
-                if (item.quality < 50) {
-                    item.quality = item.quality + 1;
-                }
+                increaseQuality();
             }
         } else if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-            if (item.quality < 50) {
-                item.quality = item.quality + 1;
-            }
+            increaseQuality();
 
             if (item.sellIn < 11) {
-                if (item.quality < 50) {
-                    item.quality = item.quality + 1;
-                }
+                increaseQuality();
             }
 
             if (item.sellIn < 6) {
-                if (item.quality < 50) {
-                    item.quality = item.quality + 1;
-                }
+                increaseQuality();
             }
 
             item.sellIn = item.sellIn - 1;
@@ -59,6 +49,12 @@ public final class InventoryItem {
                     item.quality = item.quality - 1;
                 }
             }
+        }
+    }
+
+    private void increaseQuality() {
+        if (item.quality < 50) {
+            item.quality = item.quality + 1;
         }
     }
 
