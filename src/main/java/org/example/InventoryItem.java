@@ -10,34 +10,36 @@ public final class InventoryItem {
     }
 
     void age() {
-        final String name = item.name;
-        if (name.equals("Aged Brie")) {
-            increaseQuality();
-            decreaseSellIn();
-            if (item.sellIn < 0) {
+        switch (item.name) {
+            case "Aged Brie":
                 increaseQuality();
-            }
-        } else if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-            increaseQuality();
-
-            if (item.sellIn < 11) {
+                decreaseSellIn();
+                if (item.sellIn < 0) {
+                    increaseQuality();
+                }
+                break;
+            case "Backstage passes to a TAFKAL80ETC concert":
                 increaseQuality();
-            }
-
-            if (item.sellIn < 6) {
-                increaseQuality();
-            }
-            decreaseSellIn();
-            if (item.sellIn < 0) {
-                dropQualityToZero();
-            }
-        } else if (name.equals("Sulfuras, Hand of Ragnaros")) {
-        } else {
-            decreaseQuality();
-            decreaseSellIn();
-            if (item.sellIn < 0) {
+                if (item.sellIn < 11) {
+                    increaseQuality();
+                }
+                if (item.sellIn < 6) {
+                    increaseQuality();
+                }
+                decreaseSellIn();
+                if (item.sellIn < 0) {
+                    dropQualityToZero();
+                }
+                break;
+            case "Sulfuras, Hand of Ragnaros":
+                break;
+            default:
                 decreaseQuality();
-            }
+                decreaseSellIn();
+                if (item.sellIn < 0) {
+                    decreaseQuality();
+                }
+                break;
         }
     }
 
