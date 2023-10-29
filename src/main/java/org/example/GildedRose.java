@@ -9,7 +9,8 @@ class GildedRose {
 
     public void updateQuality() {
         for (Item item : items) {
-            InventoryItem.create(item).age();
+            final InventoryItem inventoryItem = InventoryItem.create(item);
+            inventoryItem.age();
         }
     }
 
