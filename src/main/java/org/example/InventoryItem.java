@@ -14,26 +14,31 @@ public final class InventoryItem {
         if (name.equals("Aged Brie")) {
             increaseQuality();
             decreaseSellIn();
-        } else if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-            increaseQuality();
-
-            if (item.sellIn < 11) {
-                increaseQuality();
+            if (item.sellIn < 0) {
+                doBottomPart(name);
             }
-
-            if (item.sellIn < 6) {
-                increaseQuality();
-            }
-            decreaseSellIn();
-        } else if (name.equals("Sulfuras, Hand of Ragnaros")) {
         } else {
-            decreaseQuality();
-            decreaseSellIn();
+            if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+                increaseQuality();
+
+                if (item.sellIn < 11) {
+                    increaseQuality();
+                }
+
+                if (item.sellIn < 6) {
+                    increaseQuality();
+                }
+                decreaseSellIn();
+            } else if (name.equals("Sulfuras, Hand of Ragnaros")) {
+            } else {
+                decreaseQuality();
+                decreaseSellIn();
+            }
+            if (item.sellIn < 0) {
+                doBottomPart(name);
+            }
         }
 
-        if (item.sellIn < 0) {
-            doBottomPart(name);
-        }
     }
 
     private void doBottomPart(String name) {
