@@ -8,8 +8,12 @@ public class InventoryItem {
     public static final String SULFURAS_NAME = "Sulfuras, Hand of Ragnaros";
     private final Item item;
 
-    public InventoryItem(Item item) {
+    InventoryItem(Item item) {
         this.item = item;
+    }
+
+    public static InventoryItem create(Item item) {
+        return new InventoryItem(item);
     }
 
     void age() {
