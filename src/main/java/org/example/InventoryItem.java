@@ -22,7 +22,7 @@ public final class InventoryItem {
         } else if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
             increaseQuality();
 
-            if (item.sellIn < 11) {
+            if (sellInIsLessThan()) {
                 increaseQuality();
             }
 
@@ -46,6 +46,10 @@ public final class InventoryItem {
                 decreaseQuality();
             }
         }
+    }
+
+    private boolean sellInIsLessThan() {
+        return item.sellIn < 11;
     }
 
     private void dropQualityToZero() {
