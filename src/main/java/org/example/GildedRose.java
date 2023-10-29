@@ -9,56 +9,56 @@ class GildedRose {
 
     public void updateQuality() {
         for (Item item : items) {
-            age(item);
+            age(new InventoryItem(item));
         }
     }
 
-    private static void age(Item item) {
-        if (!item.name.equals("Aged Brie")
-                && !item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-            if (item.quality > 0) {
-                if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
-                    item.quality = item.quality - 1;
+    private static void age(InventoryItem inventoryItem) {
+        if (!inventoryItem.item().name.equals("Aged Brie")
+                && !inventoryItem.item().name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+            if (inventoryItem.item().quality > 0) {
+                if (!inventoryItem.item().name.equals("Sulfuras, Hand of Ragnaros")) {
+                    inventoryItem.item().quality = inventoryItem.item().quality - 1;
                 }
             }
         } else {
-            if (item.quality < 50) {
-                item.quality = item.quality + 1;
+            if (inventoryItem.item().quality < 50) {
+                inventoryItem.item().quality = inventoryItem.item().quality + 1;
 
-                if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                    if (item.sellIn < 11) {
-                        if (item.quality < 50) {
-                            item.quality = item.quality + 1;
+                if (inventoryItem.item().name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+                    if (inventoryItem.item().sellIn < 11) {
+                        if (inventoryItem.item().quality < 50) {
+                            inventoryItem.item().quality = inventoryItem.item().quality + 1;
                         }
                     }
 
-                    if (item.sellIn < 6) {
-                        if (item.quality < 50) {
-                            item.quality = item.quality + 1;
+                    if (inventoryItem.item().sellIn < 6) {
+                        if (inventoryItem.item().quality < 50) {
+                            inventoryItem.item().quality = inventoryItem.item().quality + 1;
                         }
                     }
                 }
             }
         }
 
-        if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
-            item.sellIn = item.sellIn - 1;
+        if (!inventoryItem.item().name.equals("Sulfuras, Hand of Ragnaros")) {
+            inventoryItem.item().sellIn = inventoryItem.item().sellIn - 1;
         }
 
-        if (item.sellIn < 0) {
-            if (!item.name.equals("Aged Brie")) {
-                if (!item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                    if (item.quality > 0) {
-                        if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
-                            item.quality = item.quality - 1;
+        if (inventoryItem.item().sellIn < 0) {
+            if (!inventoryItem.item().name.equals("Aged Brie")) {
+                if (!inventoryItem.item().name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+                    if (inventoryItem.item().quality > 0) {
+                        if (!inventoryItem.item().name.equals("Sulfuras, Hand of Ragnaros")) {
+                            inventoryItem.item().quality = inventoryItem.item().quality - 1;
                         }
                     }
                 } else {
-                    item.quality = item.quality - item.quality;
+                    inventoryItem.item().quality = inventoryItem.item().quality - inventoryItem.item().quality;
                 }
             } else {
-                if (item.quality < 50) {
-                    item.quality = item.quality + 1;
+                if (inventoryItem.item().quality < 50) {
+                    inventoryItem.item().quality = inventoryItem.item().quality + 1;
                 }
             }
         }
