@@ -54,7 +54,7 @@ class GildedRose {
                         }
                     }
                 } else {
-                    inventoryItem.item().quality = inventoryItem.item().quality - inventoryItem.item().quality;
+                    inventoryItem.item().quality = 0;
                 }
             } else {
                 if (inventoryItem.item().quality < 50) {
