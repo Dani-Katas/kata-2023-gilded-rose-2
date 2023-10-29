@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.Objects;
 
-public final class InventoryItem {
+public class InventoryItem {
     private final Item item;
 
     public InventoryItem(Item item) {
