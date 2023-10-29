@@ -16,7 +16,7 @@ public final class InventoryItem {
 
             decreaseSellIn();
 
-            if (sellInIsLessThan(0)) {
+            if (hasExpired()) {
                 increaseQuality();
             }
         } else if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
@@ -32,7 +32,7 @@ public final class InventoryItem {
 
             decreaseSellIn();
 
-            if (sellInIsLessThan(0)) {
+            if (hasExpired()) {
                 dropQualityToZero();
             }
         } else if (name.equals("Sulfuras, Hand of Ragnaros")) {
@@ -42,10 +42,14 @@ public final class InventoryItem {
 
             decreaseSellIn();
 
-            if (sellInIsLessThan(0)) {
+            if (hasExpired()) {
                 decreaseQuality();
             }
         }
+    }
+
+    private boolean hasExpired() {
+        return sellInIsLessThan(0);
     }
 
     private boolean sellInIsLessThan(int amount) {
