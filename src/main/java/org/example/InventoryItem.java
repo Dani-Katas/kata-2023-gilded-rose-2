@@ -33,7 +33,7 @@ public final class InventoryItem {
             decreaseSellIn();
 
             if (item.sellIn < 0) {
-                item.quality = 0;
+                dropQualityToZero();
             }
         } else if (name.equals("Sulfuras, Hand of Ragnaros")) {
 
@@ -46,6 +46,10 @@ public final class InventoryItem {
                 decreaseQuality();
             }
         }
+    }
+
+    private void dropQualityToZero() {
+        item.quality = 0;
     }
 
     private void decreaseSellIn() {
