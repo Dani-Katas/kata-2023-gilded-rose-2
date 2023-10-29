@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Arrays;
+
 class GildedRose {
     Item[] items;
 
@@ -8,10 +10,7 @@ class GildedRose {
     }
 
     public void updateQuality() {
-        for (Item item : items) {
-            final InventoryItem inventoryItem = InventoryItem.create(item);
-            inventoryItem.age();
-        }
+        Arrays.stream(items).map(InventoryItem::create).forEach(InventoryItem::age);
     }
 
 }
