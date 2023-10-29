@@ -14,7 +14,7 @@ public final class InventoryItem {
         if (name.equals("Aged Brie")) {
             increaseQuality();
 
-            item.sellIn = item.sellIn - 1;
+            decreaseSellIn();
 
             if (item.sellIn < 0) {
                 increaseQuality();
@@ -30,7 +30,7 @@ public final class InventoryItem {
                 increaseQuality();
             }
 
-            item.sellIn = item.sellIn - 1;
+            decreaseSellIn();
 
             if (item.sellIn < 0) {
                 item.quality = 0;
@@ -40,12 +40,16 @@ public final class InventoryItem {
         } else {
             decreaseQuality();
 
-            item.sellIn = item.sellIn - 1;
+            decreaseSellIn();
 
             if (item.sellIn < 0) {
                 decreaseQuality();
             }
         }
+    }
+
+    private void decreaseSellIn() {
+        item.sellIn = item.sellIn - 1;
     }
 
     private void decreaseQuality() {
