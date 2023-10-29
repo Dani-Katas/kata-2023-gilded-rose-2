@@ -17,30 +17,26 @@ public final class InventoryItem {
             if (item.sellIn < 0) {
                 increaseQuality();
             }
-        } else {
-            if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+        } else if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+            increaseQuality();
+
+            if (item.sellIn < 11) {
                 increaseQuality();
+            }
 
-                if (item.sellIn < 11) {
-                    increaseQuality();
-                }
-
-                if (item.sellIn < 6) {
-                    increaseQuality();
-                }
-                decreaseSellIn();
-                if (item.sellIn < 0) {
-                    dropQualityToZero();
-                }
-            } else {
-                if (name.equals("Sulfuras, Hand of Ragnaros")) {
-                } else {
-                    decreaseQuality();
-                    decreaseSellIn();
-                    if (item.sellIn < 0) {
-                        decreaseQuality();
-                    }
-                }
+            if (item.sellIn < 6) {
+                increaseQuality();
+            }
+            decreaseSellIn();
+            if (item.sellIn < 0) {
+                dropQualityToZero();
+            }
+        } else if (name.equals("Sulfuras, Hand of Ragnaros")) {
+        } else {
+            decreaseQuality();
+            decreaseSellIn();
+            if (item.sellIn < 0) {
+                decreaseQuality();
             }
         }
     }
