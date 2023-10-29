@@ -3,6 +3,9 @@ package org.example;
 import java.util.Objects;
 
 public class InventoryItem {
+    public static final String AGED_BRIE_NAME = "Aged Brie";
+    public static final String BACKSTAGE_PASSES_NAME = "Backstage passes to a TAFKAL80ETC concert";
+    public static final String SULFURAS_NAME = "Sulfuras, Hand of Ragnaros";
     private final Item item;
 
     InventoryItem(Item item) {
@@ -15,14 +18,14 @@ public class InventoryItem {
 
     void age() {
         switch (item.name) {
-            case "Aged Brie":
+            case AGED_BRIE_NAME:
                 increaseQuality();
                 decreaseSellIn();
                 if (hasExpired()) {
                     increaseQuality();
                 }
                 break;
-            case "Backstage passes to a TAFKAL80ETC concert":
+            case BACKSTAGE_PASSES_NAME:
                 increaseQuality();
                 if (sellInIsLessThan(11)) {
                     increaseQuality();
@@ -35,7 +38,7 @@ public class InventoryItem {
                     dropQualityToZero();
                 }
                 break;
-            case "Sulfuras, Hand of Ragnaros":
+            case SULFURAS_NAME:
                 break;
             default:
                 decreaseQuality();
