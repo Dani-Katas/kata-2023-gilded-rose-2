@@ -10,7 +10,7 @@ public final class InventoryItem {
     }
 
     void age() {
-        final String name = item.name;
+        final String name = getName();
         if (name.equals("Aged Brie")) {
             increaseQuality();
 
@@ -46,6 +46,10 @@ public final class InventoryItem {
                 decreaseQuality();
             }
         }
+    }
+
+    private String getName() {
+        return item.name;
     }
 
     private boolean hasExpired() {
