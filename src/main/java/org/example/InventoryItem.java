@@ -50,9 +50,10 @@ public final class InventoryItem {
                 if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                     item.quality = 0;
                 } else {
-                    if (!item.name.equals("Sulfuras, Hand of Ragnaros") && item.quality > 0) {
-                        item.quality = item.quality - 1;
-                    }
+                    if (!item.name.equals("Sulfuras, Hand of Ragnaros"))
+                        if (item.quality > 0) {
+                            item.quality = item.quality - 1;
+                        }
                 }
             }
         }
