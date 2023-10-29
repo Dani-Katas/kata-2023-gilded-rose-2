@@ -23,7 +23,7 @@ public class InventoryItem {
     }
 
     void age() {
-        switch (getName()) {
+        switch ("any other") {
             case AGED_BRIE_NAME:
                 increaseQuality();
                 decreaseSellIn();
