@@ -7,7 +7,7 @@ public class Sulfuras extends InventoryItem {
 
     @Override
     void age() {
-        switch (getName()) {
+        switch (SULFURAS_NAME) {
             case AGED_BRIE_NAME:
                 increaseQuality();
                 decreaseSellIn();
