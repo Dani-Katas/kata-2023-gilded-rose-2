@@ -26,12 +26,17 @@ public final class InventoryItem {
                 if (item.sellIn < 6) {
                     increaseQuality();
                 }
-            } else if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
+                if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
+                    decreaseSellIn();
+                }
             } else {
-                decreaseQuality();
-            }
-            if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
-                decreaseSellIn();
+                if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
+                } else {
+                    decreaseQuality();
+                }
+                if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
+                    decreaseSellIn();
+                }
             }
         }
 
