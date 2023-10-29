@@ -13,6 +13,16 @@ public class InventoryItem {
     }
 
     public static InventoryItem create(Item item) {
+        if (AGED_BRIE_NAME.equals(item.name)) {
+            return new AgedBrie(item);
+        }
+        if (BACKSTAGE_PASSES_NAME.equals(item.name)) {
+            return new BackstagePasses(item);
+        }
+        if (SULFURAS_NAME.equals(item.name)) {
+            return new Sulfuras(item);
+        }
+
         return new InventoryItem(item);
     }
 
