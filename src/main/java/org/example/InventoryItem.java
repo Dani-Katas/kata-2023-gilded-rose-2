@@ -11,24 +11,16 @@ public final class InventoryItem {
 
     void age() {
         if (item.name.equals("Aged Brie")) {
-            if (item.quality < 50) {
-                item.quality = item.quality + 1;
-            }
+            increaseQuality();
         } else if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-            if (item.quality < 50) {
-                item.quality = item.quality + 1;
-            }
+            increaseQuality();
 
             if (item.sellIn < 11) {
-                if (item.quality < 50) {
-                    item.quality = item.quality + 1;
-                }
+                increaseQuality();
             }
 
             if (item.sellIn < 6) {
-                if (item.quality < 50) {
-                    item.quality = item.quality + 1;
-                }
+                increaseQuality();
             }
         } else if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
         } else {
@@ -43,9 +35,7 @@ public final class InventoryItem {
 
         if (item.sellIn < 0) {
             if (item.name.equals("Aged Brie")) {
-                if (item.quality < 50) {
-                    item.quality = item.quality + 1;
-                }
+                increaseQuality();
             } else if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                 item.quality = 0;
             } else if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
@@ -54,6 +44,12 @@ public final class InventoryItem {
                     item.quality = item.quality - 1;
                 }
             }
+        }
+    }
+
+    private void increaseQuality() {
+        if (item.quality < 50) {
+            item.quality = item.quality + 1;
         }
     }
 
