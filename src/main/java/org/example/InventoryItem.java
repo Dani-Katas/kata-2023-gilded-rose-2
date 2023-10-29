@@ -11,40 +11,36 @@ public final class InventoryItem {
 
     void age() {
         final String name = getName();
-        if (name.equals("Aged Brie")) {
-            increaseQuality();
-
-            decreaseSellIn();
-
-            if (hasExpired()) {
+        switch (name) {
+            case "Aged Brie":
                 increaseQuality();
-            }
-        } else if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-            increaseQuality();
-
-            if (sellInIsLessThan(11)) {
+                decreaseSellIn();
+                if (hasExpired()) {
+                    increaseQuality();
+                }
+                break;
+            case "Backstage passes to a TAFKAL80ETC concert":
                 increaseQuality();
-            }
-
-            if (sellInIsLessThan(6)) {
-                increaseQuality();
-            }
-
-            decreaseSellIn();
-
-            if (hasExpired()) {
-                dropQualityToZero();
-            }
-        } else if (name.equals("Sulfuras, Hand of Ragnaros")) {
-
-        } else {
-            decreaseQuality();
-
-            decreaseSellIn();
-
-            if (hasExpired()) {
+                if (sellInIsLessThan(11)) {
+                    increaseQuality();
+                }
+                if (sellInIsLessThan(6)) {
+                    increaseQuality();
+                }
+                decreaseSellIn();
+                if (hasExpired()) {
+                    dropQualityToZero();
+                }
+                break;
+            case "Sulfuras, Hand of Ragnaros":
+                break;
+            default:
                 decreaseQuality();
-            }
+                decreaseSellIn();
+                if (hasExpired()) {
+                    decreaseQuality();
+                }
+                break;
         }
     }
 
